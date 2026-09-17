@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>REALITY: FELONY — Personal Archive</title>
+<style>
+:root{--bg:#090b10;--panel:#121722;--panel2:#191f2b;--text:#edf0f5;--muted:#929aaa;--accent:#91a9ff;--line:#293142;--danger:#d97878}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#172035,#090b10 50%);color:var(--text);font-family:Georgia,serif;line-height:1.65}
+header{text-align:center;padding:55px 16px 35px;border-bottom:1px solid var(--line)}h1{font-size:clamp(2rem,7vw,4.5rem);letter-spacing:.08em;margin:0}.sub{color:var(--muted)}.quote{color:var(--accent);font-style:italic;margin-top:12px}
+nav{position:sticky;top:0;z-index:10;background:#090b10eF;border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}.nav{max-width:1100px;margin:auto;display:flex;gap:6px;padding:9px;overflow:auto}
+button{font:inherit;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:9px 13px;cursor:pointer}button:hover{background:var(--panel2)}main{max-width:1100px;margin:auto;padding:30px 16px 80px}.view{display:none}.view.active{display:block}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:15px}.act-card{grid-column:1/-1;background:linear-gradient(135deg,#151d2c,#0f141e);border:1px solid #364159;border-radius:16px;padding:20px;margin-bottom:4px}.act-head{display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer}.act-title{font-size:1.35rem;margin:0}.act-chapters{margin-top:14px;padding:8px 0 0 18px;border-left:2px solid var(--accent)}.chapter-row{display:flex;align-items:center;gap:8px;margin:8px 0}.chapter-main{flex:1;text-align:left}.mini{padding:6px 9px;font-size:.9rem}.act-actions{display:flex;gap:6px;flex-wrap:wrap}.story-description{margin:22px 0 28px}.story-description h3{font-size:26px;margin-top:0}.story-description p{line-height:1.8}.story-description .mini{margin-top:8px}
+.group-card{background:linear-gradient(135deg,#151d2c,#0f141e);border:1px solid #364159;border-radius:16px;padding:20px;margin:0 0 22px}.group-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:0;cursor:pointer}.group-head:hover{background:#ffffff03}.group-toggle{display:flex;align-items:flex-start;gap:12px;flex:1;min-width:0}.group-arrow{font-size:1.2rem;color:var(--accent);padding-top:2px}.group-actions{display:flex;gap:6px;flex-wrap:wrap}.group-title{font-size:1.55rem;margin:0}.group-members{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}.member-card{background:#0d1119aa;border:1px solid var(--line);border-radius:12px;padding:15px}.member-card h4{margin:0 0 6px;font-size:1.15rem}.card{background:#121722dd;border:1px solid var(--line);border-radius:14px;padding:18px}.card h3{margin-top:0}.muted{color:var(--muted)}.accent{color:var(--accent)}
+.list button{width:100%;text-align:left;margin:5px 0}.search,input,textarea,select{width:100%;background:#0d1119;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:11px;font:inherit}.form{display:grid;gap:10px}.form textarea{min-height:130px;resize:vertical}.actions{display:flex;gap:8px;flex-wrap:wrap}.danger{border-color:#6c3838;color:#ffb0b0}
+.reader{max-width:900px;margin:auto}
+.reader h2{font-size:clamp(1.8rem,5vw,2.5rem);line-height:1.2;margin:8px 0 4px}
+.reader-shell{background:linear-gradient(145deg,rgba(21,29,44,.86),rgba(12,16,24,.92));border:1px solid var(--line);border-radius:18px;padding:clamp(18px,4vw,34px);box-shadow:0 18px 50px rgba(0,0,0,.18)}
+.reader-body{max-width:760px;margin:24px auto 0}
+.reader-body p{margin:0 0 1.15em;text-indent:1.5em;font-size:clamp(1.04rem,2.2vw,1.14rem);line-height:1.85;overflow-wrap:break-word;word-break:normal}
+.reader-body p:first-child{text-indent:0}
+.page-info{text-align:center;color:var(--muted);font-size:.92rem;margin:16px 0}
+.page-nav{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:22px}
+.page-nav button{min-width:110px}
+@media(max-width:600px){
+  main{padding:18px 10px 60px}
+  .reader-shell{padding:16px 14px;border-radius:14px}
+  .reader-body p{font-size:1.05rem;line-height:1.8;text-indent:1.2em}
+  .page-nav button{min-width:0;flex:1}
+}
+table{width:100%;border-collapse:collapse}td,th{padding:9px;border-bottom:1px solid var(--line);text-align:left}.admin{border-left:3px solid var(--accent);padding-left:15px}
+small{color:var(--muted)}
+</style>
+<style id="auth-cloud-style">
+#loginGate{position:fixed;inset:0;z-index:9999;background:radial-gradient(circle at top,#172035,#090b10 58%);display:grid;place-items:center;padding:20px}
+.login-card{width:min(440px,100%);background:rgba(18,23,34,.96);border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:0 24px 70px rgba(0,0,0,.45)}
+.login-card h2{margin-top:0}.login-card .form{margin-top:16px}.login-error{color:#ffb0b0;min-height:1.4em}.cloud-status{font-size:.9rem;color:var(--muted);margin-top:8px}.role-badge{display:inline-block;padding:3px 8px;border:1px solid var(--line);border-radius:999px;font-size:.82rem;margin-left:6px}
+body.locked>header,body.locked>nav,body.locked>main{visibility:hidden}
+.member-hide{display:none!important}
+@media(max-width:600px){.login-card{padding:20px}.login-card h1{font-size:1.7rem}}
+</style>
+
+<style id="voice-reader-style">
+.voice-reader{margin:18px 0;padding:12px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:rgba(255,255,255,.035)}
+.voice-reader .voice-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.voice-reader button,.voice-reader select{padding:8px 11px;border-radius:8px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.18);color:inherit;max-width:100%}
+.voice-reader label{font-size:.9em;opacity:.85;display:flex;align-items:center;gap:5px}
+.voice-status{opacity:.75;flex:1;min-width:150px}
+@media(max-width:600px){.voice-reader .voice-row{display:grid;grid-template-columns:1fr 1fr}.voice-reader label,.voice-status{grid-column:1/-1}.voice-reader select{width:100%}}
+</style>
+</head>
+<body class="locked">
+<div id="loginGate">
+  <div class="login-card">
+    <div class="sub">REALITY: FELONY</div>
+    <h2>Đăng nhập thư viện</h2>
+    <p class="muted">Người đọc chỉ được xem và nghe. Admin có quyền viết, sửa, xóa và đồng bộ nội dung.</p>
+    <div class="form">
+      <input id="loginName" autocomplete="username" placeholder="Tên đăng nhập (member / admin)">
+      <input id="loginPass" autocomplete="current-password" type="password" placeholder="Mật khẩu">
+      <button onclick="login()">🔐 Đăng nhập</button>
+      <div id="loginError" class="login-error"></div>
+      <div id="cloudLoginStatus" class="cloud-status">☁️ Đang kiểm tra cấu hình đồng bộ…</div>
+    </div>
+  </div>
+</div>
+<header><div class="sub">PERSONAL NOVEL ARCHIVE</div><h1>REALITY: FELONY</h1><div class="sub">Địa Ngục Thực Tại</div><div class="quote">“Không ai sở hữu Reality.”</div></header>
+<nav><div class="nav">
+<button onclick="show('home')">Trang chủ</button><button onclick="show('chapters')">Act & Chương</button><button onclick="show('characters')">Nhân vật</button><button onclick="show('cities')">🏙️ Thành phố</button><button onclick="show('organizations')">🏛️ Tổ chức</button><button onclick="show('lore')">Từ ngữ / Lore</button><button onclick="show('timeline')">Timeline</button><button onclick="show('manage')">✎ Quản lý</button>
+</div></nav>
+<main>
+<section id="home" class="view active"><h2>Kho lưu trữ của bạn</h2><p class="muted">Website cá nhân để viết, sắp xếp và đọc lại toàn bộ thế giới REALITY: FELONY.</p><div class="card story-description"><h3>REALITY: FELONY — Địa Ngục Thực Tại</h3><div id="storyDescription"></div><button class="mini" onclick="editStoryDescription()">✎ Sửa mô tả câu chuyện</button></div><div class="cards" id="homeCards"></div></section>
+<section id="acts" class="view"><h2>Các Act</h2><div class="actions"><button onclick="newItem('act')">＋ Thêm Act</button></div><div class="cards" id="actList"></div></section>
+<section id="chapters" class="view"><h2>Acts & Chương</h2><p class="muted">Bấm vào một Act để mở danh sách chương bên dưới. Mỗi Act và chương đều có nút sửa/xóa.</p><div class="actions"><button onclick="newItem('act')">＋ Thêm Act</button><button onclick="newItem('chapter')">＋ Viết chương</button></div><div id="actChapterList" style="margin-top:18px"></div></section>
+<section id="reader" class="view">
+<article class="reader">
+  <div class="reader-shell">
+    <div class="muted" id="rAct"></div>
+    <h2 id="rTitle"></h2>
+    <small id="rMeta"></small>
+    <div class="voice-reader" id="voiceReader">
+      <div class="voice-row">
+        <button type="button" onclick="REALITYFelonyVoice.speak()">🔊 Đọc toàn bộ</button>
+        <button type="button" onclick="REALITYFelonyVoice.pause()">⏸️ Tạm dừng</button>
+        <button type="button" onclick="REALITYFelonyVoice.resume()">▶️ Tiếp tục</button>
+        <button type="button" onclick="REALITYFelonyVoice.stop()">⏹️ Dừng</button>
+        <label>Tốc độ
+          <select id="voiceRate">
+            <option value="0.75">0.75×</option><option value="0.9">0.9×</option>
+            <option value="1" selected>1×</option><option value="1.15">1.15×</option>
+            <option value="1.25">1.25×</option><option value="1.5">1.5×</option>
+          </select>
+        </label>
+        <label>Giọng
+          <select id="voiceVoice"><option>Đang tải…</option></select>
+        </label>
+        <span id="voiceStatus" class="voice-status">Sẵn sàng.</span>
+      </div>
+    </div>
+    <hr>
+    <div class="reader-body" id="rBody"></div>
+    <div class="page-info" id="pageInfo"></div>
+    <div class="page-nav">
+      <button id="pagePrev" onclick="prevPage()">← Trang trước</button>
+      <button id="pageNext" onclick="nextPage()">Trang sau →</button>
+    </div>
+    <div class="pager">
+      <button onclick="prevChapter()">⏮ Chương trước</button>
+      <button onclick="nextChapter()">Chương sau ⏭</button>
+    </div>
+  </div>
+</article>
+</section>
+<section id="characters" class="view"><h2>Nhân vật</h2><div class="actions"><button onclick="newItem('group')">＋ Tạo khung nhân vật</button><button onclick="newItem('character')">＋ Thêm nhân vật</button></div><input class="search" id="characterSearch" placeholder="🔎 Tìm tên nhân vật hoặc tên khung..." oninput="renderCharacters()" style="margin:16px 0"><p class="muted">Mỗi khung là một nhóm riêng. Bạn có thể tạo khung <b>Felony</b>, <b>Nhân vật phụ</b> hoặc bất kỳ nhóm nào bạn muốn, rồi thêm nhân vật vào đó.</p><div id="charList"></div></section>
+<section id="cities" class="view"><h2>🏙️ Thành phố</h2><div class="actions"><button onclick="newItem('city')">＋ Thêm thành phố</button></div><input class="search" id="citySearch" placeholder="🔎 Tìm tên thành phố, khu vực..." oninput="renderCities()" style="margin:16px 0"><p class="muted">Kho thông tin các thành phố trong thế giới REALITY: FELONY.</p><div class="cards" id="cityList"></div></section>
+<section id="organizations" class="view"><h2>🏛️ Tổ chức</h2><div class="actions"><button onclick="newItem('organization')">＋ Thêm tổ chức</button></div><input class="search" id="organizationSearch" placeholder="🔎 Tìm tên tổ chức, loại hình..." oninput="renderOrganizations()" style="margin:16px 0"><p class="muted">Hồ sơ các tổ chức, phe phái, chính quyền và nhóm quyền lực trong thế giới truyện.</p><div class="cards" id="organizationList"></div></section>
+<section id="lore" class="view"><h2>Từ ngữ / Lore</h2><div class="actions"><button onclick="newItem('lore')">＋ Thêm thuật ngữ</button></div><div class="cards" id="loreList"></div></section>
+<section id="timeline" class="view"><h2>Timeline</h2><div class="actions"><button onclick="newItem('event')">＋ Thêm mốc thời gian</button></div><div class="list" id="timelineList"></div></section>
+<section id="manage" class="view"><div class="admin"><h2>✎ Trung tâm viết</h2><p>Đây là khu vực dành cho <b>admin</b> để thêm/sửa Act, chương, nhân vật, thành phố, tổ chức, thuật ngữ và mốc thời gian.</p><p class="muted">Dữ liệu được lưu cục bộ để làm bộ nhớ tạm và có thể đồng bộ lên cloud khi đã cấu hình Supabase.</p><p id="cloudStatus" class="cloud-status">☁️ Chưa đồng bộ trong phiên này.</p></div><br><div class="actions admin-only"><button onclick="newItem('chapter')">＋ Viết chương mới</button><button onclick="syncToCloud()">☁️ Đồng bộ cloud</button><button onclick="exportData()">⬇ Xuất dữ liệu</button><button onclick="document.getElementById('importFile').click()">⬆ Nhập dữ liệu</button><button class="danger" onclick="resetData()">Xóa dữ liệu mẫu</button></div><input type="file" id="importFile" accept=".json" hidden onchange="importData(event)"><div id="editor" style="margin-top:25px"></div></section>
+</main>
+<script>
+// ===== CLOUD + LOGIN =====
+// Dán 2 giá trị này từ Supabase Project Settings -> API.
+const SUPABASE_URL="PASTE_SUPABASE_URL_HERE";
+const SUPABASE_ANON_KEY="PASTE_SUPABASE_ANON_KEY_HERE";
+const MEMBER_NAME="member", MEMBER_PASSWORD="1";
+const ADMIN_NAME="admin", ADMIN_PASSWORD="120";
+let sessionRole=sessionStorage.getItem("felony_role")||"";
+function isCloudConfigured(){return SUPABASE_URL.startsWith("https://")&&SUPABASE_ANON_KEY.length>20&&!SUPABASE_URL.includes("PASTE_")}
+function isAdmin(){return sessionRole==="admin"}
+function authGuard(){if(!isAdmin()){alert("Tài khoản member chỉ có quyền đọc. Hãy đăng nhập admin để chỉnh sửa.");return false}return true}
+function cloudHeaders(){return {"apikey":SUPABASE_ANON_KEY,"Authorization":"Bearer "+SUPABASE_ANON_KEY,"Content-Type":"application/json"}}
+async function cloudGet(){if(!isCloudConfigured())return null;const r=await fetch(SUPABASE_URL+"/rest/v1/rpc/get_site_data",{method:"POST",headers:cloudHeaders(),body:"{}"});if(!r.ok)throw new Error("Cloud GET "+r.status);return await r.json()}
+async function cloudSaveRemote(payload){if(!isCloudConfigured())throw new Error("Chưa cấu hình Supabase");const r=await fetch(SUPABASE_URL+"/rest/v1/rpc/save_site_data",{method:"POST",headers:cloudHeaders(),body:JSON.stringify({p_password:ADMIN_PASSWORD,p_data:payload})});if(!r.ok){const t=await r.text();throw new Error(t||("Cloud SAVE "+r.status))}return await r.json()}
+async function syncFromCloud(){
+  const st=document.getElementById("cloudLoginStatus");
+  if(!isCloudConfigured()){if(st)st.textContent="☁️ Chưa cấu hình cloud. Website vẫn chạy cục bộ.";return}
+  try{
+    const remote=await cloudGet();
+    if(remote && typeof remote==="object" && remote.chapters && remote.acts){data=remote;localStorage.setItem(KEY,JSON.stringify(data));renderAll();renderCharacters();renderChapters();
+      if(st)st.textContent="☁️ Đã tải dữ liệu dùng chung từ cloud.";
+    }else if(st)st.textContent="☁️ Cloud chưa có dữ liệu. Admin hãy lưu lần đầu để tạo dữ liệu dùng chung.";
+  }catch(e){if(st)st.textContent="⚠️ Không tải được cloud: "+e.message;console.error(e)}
+}
+async function syncToCloud(){
+  if(!isAdmin()){alert("Chỉ admin mới được đồng bộ dữ liệu.");return}
+  if(!isCloudConfigured()){alert("Chưa cấu hình Supabase. Hãy mở file SETUP_CLOUD.md và làm theo hướng dẫn.");return}
+  try{await cloudSaveRemote(data);const st=document.getElementById("cloudStatus");if(st)st.textContent="☁️ Đã đồng bộ lúc "+new Date().toLocaleTimeString("vi-VN");alert("Đã đồng bộ dữ liệu lên cloud. Các thiết bị khác sẽ tải dữ liệu này khi đăng nhập/đổi mới trang.")}catch(e){alert("Không đồng bộ được: "+e.message);console.error(e)}
+}
+function login(){
+  const n=(document.getElementById("loginName").value||"").trim().toLowerCase(), p=document.getElementById("loginPass").value||"", err=document.getElementById("loginError");
+  if((n===MEMBER_NAME&&p===MEMBER_PASSWORD)||(n===ADMIN_NAME&&p===ADMIN_PASSWORD)){
+    sessionRole=n===ADMIN_NAME?"admin":"member";sessionStorage.setItem("felony_role",sessionRole);document.body.classList.remove("locked");document.getElementById("loginGate").style.display="none";applyRoleUI();syncFromCloud();return;
+  }
+  err.textContent="Sai tên đăng nhập hoặc mật khẩu.";
+}
+function logout(){sessionStorage.removeItem("felony_role");sessionRole="";location.reload()}
+function applyRoleUI(){
+  document.querySelectorAll(".admin-only").forEach(x=>x.classList.toggle("member-hide",!isAdmin()));
+  const manageBtn=[...document.querySelectorAll("nav button")].find(b=>(b.textContent||"").includes("Quản lý"));if(manageBtn)manageBtn.classList.toggle("member-hide",!isAdmin());
+  const title=document.querySelector("header h1");if(title)title.insertAdjacentHTML("afterend",`<div class="sub" id="roleLine">Đã đăng nhập: <b>${isAdmin()?"admin":"member"}</b><span class="role-badge">${isAdmin()?"ADMIN — có quyền sửa":"MEMBER — chỉ đọc"}</span> · <button class="mini" onclick="logout()">Đăng xuất</button></div>`);
+  if(!isAdmin()){document.querySelectorAll("[onclick]").forEach(el=>{const code=el.getAttribute("onclick")||"";if(/newItem|newChapterFor|editAct|deleteAct|editChapter|deleteChapter|editStoryDescription|editGroup|deleteGroup|newCharacterFor|editSimple|deleteSimple|saveSimple|resetData|importData|createItem|editCity|deleteCity|saveCity|editOrganization|deleteOrganization|saveOrganization/.test(code))el.classList.add("member-hide")})}
+}
+const KEY="felony_archive_v2";
+let data=JSON.parse(localStorage.getItem(KEY)||"null")||{
+acts:[{id:"a1",name:"ACT I — IX CITY",desc:"Giai đoạn đầu của hành trình Felony.",status:"Đang viết"}],
+chapters:[
+{id:"c0",act:"a1",title:"Chương 0 — Felony",body:["Felony là một nhóm tội phạm hoạt động giữa những thành phố của một thế giới nơi Reality Fragments, FLE, CE và RCI đã trở thành một phần của cuộc sống.","Kasto được đưa vào nhóm và trở thành người chỉ huy trong một nhiệm vụ tiến vào IX City.","Đây là nội dung mẫu. Hãy vào Quản lý → Viết chương mới để thay thế bằng bản thảo thật của bạn."]},
+{id:"c1",act:"a1",title:"Chương 1 — IX City",body:["Felony tiến vào IX City bằng những phương tiện được ngụy trang.","Trong một con hẻm, Kasto bắt gặp Luci đang gặp nguy hiểm. Quyết định giúp đỡ cô bé khiến nhiệm vụ thay đổi.","Đây cũng là nơi những bí mật về Time Fragment bắt đầu được hé lộ."]}],
+characterGroups:[{id:"g1",name:"Felony",desc:"Nhóm chính của REALITY: FELONY."}],
+characters:[
+["Ying Pao","Thành viên Felony","Dao găm đôi đen/trắng · Tier 4"],
+["Sparrow Cap","Thuyền trưởng","Mỏ neo + xích · Tier 3"],
+["Latino","Chiến thuật","Đại chiến phủ · Flow Ego"],
+["Kasto","Time Fragment","Điều khiển thời gian · chưa có vũ khí"],
+["Arthur","Kingdom","Excalibur · Tier 2"],
+["Dong Fei","Blood","Đại thương · Tier 3"],
+["Lisa","Sky","Spear · Flow Ego"],
+["Vergil’s","Sovereign Sin","Dao khắc · Tier Secret"],
+["Rakuro","Glitch","Odachi · Tier 2"],
+["Frieren","Soul","Kiếm cong · Tier 2"]],
+cities:[],
+organizations:[],
+lore:[
+["Reality Fragment","Mảnh vỡ của Reality, có ý chí riêng và không đơn thuần là tài nguyên."],
+["FLE / CE","Hai mặt chức năng khác nhau của cùng một nền tảng liên quan đến Reality Mirror."],
+["RCI","Hệ thống cường hóa và vũ khí liên quan đến FLE, monster RCI và các cấp độ nguy hiểm."],
+["Flow Ego","Ý chí cá nhân được biểu hiện thành một bản ngã có hình thái và sức mạnh riêng."],
+["Reality Mirror","Tấm gương thực tại do Vergil’s tạo ra vào năm 2013, sau đó bị đánh cắp."] ],
+timeline:[
+["Thời nguyên thủy","Vergil’s đã tồn tại và thay đổi thân phận xuyên suốt lịch sử."],
+["Năm 2013","Vergil’s tạo ra Reality Mirror."],
+["Sau năm 2013","Reality Mirror bị phát hiện và đánh cắp."],
+["Hiện tại","Felony truy tìm Reality Fragments."]]
+};
+let current=0;
+// Nâng dữ liệu cũ lên hệ thống Khung nhân vật mới.
+if(!data.characterGroups){data.characterGroups=[{id:"g1",name:"Felony",desc:"Nhóm chính của REALITY: FELONY."}];}
+data.characters=data.characters.map(c=>Array.isArray(c)?[c[0],c[1],c[2]||"",c[3]||"g1"]:c);
+if(!Array.isArray(data.cities))data.cities=[];
+if(!Array.isArray(data.organizations))data.organizations=[];
+saveLocal();
+
+function saveLocal(){localStorage.setItem(KEY,JSON.stringify(data))}
+async function save(){if(!isAdmin()){return}saveLocal();renderAll();if(isCloudConfigured()){try{await cloudSaveRemote(data);const st=document.getElementById("cloudStatus");if(st)st.textContent="☁️ Đã tự động đồng bộ lúc "+new Date().toLocaleTimeString("vi-VN")}catch(e){console.warn("Cloud auto-save failed",e)}}}
+function show(id){if(id==="manage"&&!authGuard())return;document.querySelectorAll(".view").forEach(x=>x.classList.remove("active"));document.getElementById(id).classList.add("active");window.scrollTo(0,0);if(id==="chapters")renderActChapters()}
+function actName(id){return data.acts.find(a=>a.id===id)?.name||"Chưa xác định"}
+function renderAll(){
+ const defaultDesc="Trong một thế giới nơi Reality Mirror đã vỡ, những mảnh vỡ của thực tại rơi xuống các thành phố và làm thay đổi con người, sinh vật lẫn chính những quy luật của thế giới. Các thành phố bị những tổ chức quyền lực kiểm soát, còn những kẻ mang tội lỗi riêng phải sống giữa FLE, CE, RCI và những bí mật bị chôn vùi.\n\nFelony là một nhóm tội phạm gồm những con người có quá khứ khác nhau. Họ cùng lên đường truy tìm các Reality Fragments, khám phá những thành phố bị biến dạng và đối mặt với những thứ mà con người tạo ra. Nhưng càng đi xa, họ càng nhận ra rằng cuộc hành trình không chỉ là tìm kiếm sức mạnh — mà còn là câu hỏi về con người, ý chí, tội lỗi và liệu thực tại có thực sự nên được sửa chữa hay không.";
+ if(!data.storyDescription)data.storyDescription=defaultDesc;
+ document.getElementById("storyDescription").innerHTML=String(data.storyDescription).split(/\n\s*\n/).filter(Boolean).map(p=>`<p>${esc(p)}</p>`).join("");
+ document.getElementById("homeCards").innerHTML=`<div class="card"><h3>${data.acts.length} Act</h3><p class="muted">Các giai đoạn lớn của truyện.</p></div><div class="card"><h3>${data.chapters.length} chương</h3><p class="muted">Toàn bộ bản thảo.</p></div><div class="card"><h3>${data.characters.length} nhân vật</h3><p class="muted">Hồ sơ nhân vật.</p></div><div class="card"><h3>${data.cities.length} thành phố</h3><p class="muted">Địa danh và hồ sơ thành phố.</p></div><div class="card"><h3>${data.organizations.length} tổ chức</h3><p class="muted">Phe phái và tổ chức quyền lực.</p></div><div class="card"><h3>${data.lore.length} thuật ngữ</h3><p class="muted">Kho kiến thức thế giới.</p></div>`;
+ document.getElementById("actList").innerHTML=data.acts.map(a=>`<div class="card"><h3>${esc(a.name)}</h3><p>${esc(a.desc)}</p><small>${esc(a.status)}</small></div>`).join("");
+ renderCharacters();
+ renderCities();
+ renderOrganizations();
+ document.getElementById("loreList").innerHTML=data.lore.map((x,i)=>`<div class="card"><h3>${esc(x[0])}</h3><p>${esc(x[1])}</p><button onclick="editSimple('lore',${i})">Sửa</button></div>`).join("");
+ document.getElementById("timelineList").innerHTML=data.timeline.map((x,i)=>`<button onclick="editSimple('event',${i})"><b>${esc(x[0])}</b><br><span class="muted">${esc(x[1])}</span></button>`).join("");
+ renderActChapters();
+}
+function renderActChapters(){
+ const box=document.getElementById("actChapterList"); if(!box)return;
+ const open=JSON.parse(localStorage.getItem("felony_open_acts")||"[]");
+ box.innerHTML=data.acts.map(a=>{
+   const ch=data.chapters.map((c,i)=>({c,i})).filter(x=>x.c.act===a.id);
+   const isOpen=open.includes(a.id);
+   return `<div class="act-card"><div class="act-head" onclick="toggleAct('${a.id}')"><div><h3 class="act-title">${isOpen?'▾':'▸'} ${esc(a.name)}</h3><p class="muted">${esc(a.desc||"")} · ${ch.length} chương · ${esc(a.status||"")}</p></div><div class="act-actions"><button class="mini" onclick="event.stopPropagation();editAct('${a.id}')">Sửa</button><button class="mini danger" onclick="event.stopPropagation();deleteAct('${a.id}')">Xóa</button></div></div>${isOpen?`<div class="act-chapters">${ch.length?ch.map(x=>`<div class="chapter-row"><button class="chapter-main" onclick="openChapter(${x.i})"><b>${esc(x.c.title)}</b></button><button class="mini" onclick="editChapter('${x.c.id}')">Sửa</button><button class="mini danger" onclick="deleteChapter('${x.c.id}')">Xóa</button></div>`).join(""):`<p class="muted">Act này chưa có chương.</p>`}<button onclick="newChapterFor('${a.id}')">＋ Thêm chương vào Act này</button></div>`:''}</div>`;
+ }).join("");
+}
+function toggleAct(id){let a=JSON.parse(localStorage.getItem("felony_open_acts")||"[]");a=a.includes(id)?a.filter(x=>x!==id):[...a,id];localStorage.setItem("felony_open_acts",JSON.stringify(a));renderActChapters()}
+let readerPages=[], readerPage=0;
+function splitChapterPages(body,maxChars=2200){
+  const pages=[], current=[];
+  let count=0;
+  const pushPage=()=>{if(current.length){pages.push([...current]);current.length=0;count=0}};
+  const splitLongParagraph=(text)=>{
+    if(text.length<=maxChars) return [text];
+    // Split only at sentence/punctuation boundaries first; text itself is never rewritten.
+    const parts=text.match(/[^.!?…。！？]+[.!?…。！？]+|[^.!?…。！？]+$/g)||[text];
+    const out=[]; let buf="";
+    for(const part of parts){
+      if(buf && (buf.length+part.length>maxChars)){out.push(buf);buf=part}
+      else buf+=part;
+    }
+    if(buf)out.push(buf);
+    // A single extremely long sentence is split at whitespace without changing any words.
+    const final=[];
+    for(const part of out){
+      if(part.length<=maxChars){final.push(part);continue}
+      let rest=part;
+      while(rest.length>maxChars){
+        let cut=rest.lastIndexOf(" ",maxChars);
+        if(cut<1)cut=maxChars;
+        final.push(rest.slice(0,cut));
+        rest=rest.slice(cut);
+      }
+      if(rest)final.push(rest);
+    }
+    return final;
+  };
+  (body||[]).forEach(raw=>{
+    const text=String(raw??"");
+    if(!text.trim()) return;
+    splitLongParagraph(text).forEach(part=>{
+      if(count && count+part.length>maxChars) pushPage();
+      current.push(part); count+=part.length;
+    });
+  });
+  pushPage();
+  return pages.length?pages:[[""]];
+}
+function renderReaderPage(){
+  const body=document.getElementById("rBody");
+  const info=document.getElementById("pageInfo");
+  const pages=readerPages.length?readerPages:[[""]];
+  const page=pages[readerPage]||pages[0];
+  body.innerHTML=page.map(p=>`<p>${esc(p)}</p>`).join("");
+  info.textContent=`Trang ${readerPage+1} / ${pages.length} · Nội dung được chia tự động, không thay đổi câu chữ`;
+  document.getElementById("pagePrev").disabled=readerPage<=0;
+  document.getElementById("pageNext").disabled=readerPage>=pages.length-1;
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function openChapter(i){
+  if(i<0||i>=data.chapters.length)return;
+  if(window.REALITYFelonyVoice) REALITYFelonyVoice.stop();
+  current=i;
+  let c=data.chapters[i];
+  document.getElementById("rAct").textContent=actName(c.act);
+  document.getElementById("rTitle").textContent=c.title;
+  document.getElementById("rMeta").textContent=`Chương ${i+1} · Personal Archive`;
+  readerPages=splitChapterPages(c.body);
+  readerPage=0;
+  renderReaderPage();
+  show("reader");
+}
+function nextPage(){if(readerPage<readerPages.length-1){readerPage++;renderReaderPage()}}
+function prevPage(){if(readerPage>0){readerPage--;renderReaderPage()}}
+function nextChapter(){if(current<data.chapters.length-1)openChapter(current+1)}
+function prevChapter(){if(current>0)openChapter(current-1)}
+function newItem(type){if(!authGuard())return;show("manage");let e=document.getElementById("editor");let title={act:"Thêm Act",chapter:"Viết chương mới",group:"Tạo khung nhân vật",character:"Thêm nhân vật",city:"Thêm thành phố",organization:"Thêm tổ chức",lore:"Thêm thuật ngữ",event:"Thêm mốc thời gian"}[type];let fields="";
+if(type==="act")fields=`<input id="f1" placeholder="Tên Act"><textarea id="f2" placeholder="Mô tả Act"></textarea><input id="f3" placeholder="Trạng thái: Đang viết / Hoàn thành">`;
+if(type==="chapter")fields=`<select id="f1">${data.acts.map(a=>`<option value="${a.id}">${esc(a.name)}</option>`).join("")}</select><input id="f2" placeholder="Tên chương"><textarea id="f3" placeholder="Nội dung chương. Mỗi đoạn cách nhau bằng một dòng trống."></textarea>`;
+if(type==="group")fields=`<input id="f1" placeholder="Tên khung (ví dụ: Felony, Nhân vật phụ, Quân đội...)"><textarea id="f2" placeholder="Mô tả khung nhân vật"></textarea>`;
+if(type==="character")fields=`<input id="f1" placeholder="Tên nhân vật"><input id="f2" placeholder="Vai trò / tội lỗi"><textarea id="f3" placeholder="Mô tả, vũ khí, sức mạnh..."></textarea><select id="f4">${data.characterGroups.map(g=>`<option value="${g.id}">${esc(g.name)}</option>`).join("")}</select>`;
+if(type==="lore")fields=`<input id="f1" placeholder="Thuật ngữ"><textarea id="f2" placeholder="Giải thích"></textarea>`;
+if(type==="event")fields=`<input id="f1" placeholder="Mốc thời gian"><textarea id="f2" placeholder="Sự kiện"></textarea>`;
+if(type==="city")fields=`<input id="f1" placeholder="Tên thành phố"><input id="f2" placeholder="Khu vực / quốc gia / tọa độ"><input id="f3" placeholder="Trạng thái (ví dụ: đang hoạt động, bị phong tỏa...)"><textarea id="f4" placeholder="Mô tả thành phố, lịch sử, đặc điểm..."></textarea><textarea id="f5" placeholder="Địa điểm quan trọng, khu vực nổi bật..."></textarea><textarea id="f6" placeholder="Tổ chức / nhân vật liên quan..."></textarea>`;
+if(type==="organization")fields=`<input id="f1" placeholder="Tên tổ chức"><input id="f2" placeholder="Loại hình / phe phái"><input id="f3" placeholder="Trụ sở / địa bàn hoạt động"><input id="f4" placeholder="Lãnh đạo / người đứng đầu"><textarea id="f5" placeholder="Mô tả tổ chức, lịch sử hình thành..."></textarea><textarea id="f6" placeholder="Mục tiêu, quyền lực, hoạt động..."></textarea><textarea id="f7" placeholder="Thành viên / nhân vật / quan hệ với phe khác..."></textarea>`;
+e.innerHTML=`<div class="card form"><h3>${title}</h3>${fields}<div class="actions"><button onclick="createItem('${type}')">Lưu</button><button onclick="this.closest('.card').remove()">Hủy</button></div></div>`}
+function createItem(type){if(!authGuard())return;let g=id=>document.getElementById(id).value.trim();if(type==="act")data.acts.push({id:uid(),name:g("f1"),desc:g("f2"),status:g("f3")||"Đang viết"});if(type==="chapter")data.chapters.push({id:uid(),act:g("f1"),title:g("f2"),body:g("f3").split(/\n\s*\n/).filter(Boolean)});if(type==="character")data.characters.push([g("f1"),g("f2"),g("f3"),g("f4")]);if(type==="lore")data.lore.push([g("f1"),g("f2")]);if(type==="event")data.timeline.push([g("f1"),g("f2")]);
+if(type==="city")data.cities.push({id:uid(),name:g("f1"),region:g("f2"),status:g("f3"),desc:g("f4"),places:g("f5"),relations:g("f6")});
+if(type==="organization")data.organizations.push({id:uid(),name:g("f1"),type:g("f2"),base:g("f3"),leader:g("f4"),desc:g("f5"),goals:g("f6"),relations:g("f7")});
+document.getElementById("editor").innerHTML="";save();alert("Đã lưu!")}
+function editAct(id){if(!authGuard())return;let a=data.acts.find(x=>x.id===id);show("manage");document.getElementById("editor").innerHTML=`<div class="card form"><h3>Sửa Act</h3><input id="ea1" value="${attr(a.name)}"><textarea id="ea2">${esc(a.desc||"")}</textarea><input id="ea3" value="${attr(a.status||"")}"><div class="actions"><button onclick="saveAct('${id}')">Lưu</button><button onclick="document.getElementById('editor').innerHTML=''">Hủy</button></div></div>`}
+function saveAct(id){if(!authGuard())return;let a=data.acts.find(x=>x.id===id);a.name=document.getElementById("ea1").value.trim();a.desc=document.getElementById("ea2").value.trim();a.status=document.getElementById("ea3").value.trim()||"Đang viết";document.getElementById("editor").innerHTML="";save();show("chapters")}
+function deleteAct(id){if(!authGuard())return;let a=data.acts.find(x=>x.id===id);if(!a||!confirm(`Xóa Act "${a.name}" và toàn bộ chương trong Act này?`))return;data.chapters=data.chapters.filter(c=>c.act!==id);data.acts=data.acts.filter(x=>x.id!==id);save()}
+function editChapter(id){if(!authGuard())return;let i=data.chapters.findIndex(x=>x.id===id);if(i<0)return;let c=data.chapters[i];show("manage");document.getElementById("editor").innerHTML=`<div class="card form"><h3>Sửa chương</h3><select id="ec1">${data.acts.map(a=>`<option value="${a.id}" ${a.id===c.act?'selected':''}>${esc(a.name)}</option>`).join("")}</select><input id="ec2" value="${attr(c.title)}"><textarea id="ec3">${esc(c.body.join("\n\n"))}</textarea><div class="actions"><button onclick="saveChapter('${id}')">Lưu</button><button onclick="document.getElementById('editor').innerHTML=''">Hủy</button></div></div>`}
+function saveChapter(id){if(!authGuard())return;let c=data.chapters.find(x=>x.id===id);c.act=document.getElementById("ec1").value;c.title=document.getElementById("ec2").value.trim();c.body=document.getElementById("ec3").value.split(/\n\s*\n/).filter(Boolean);document.getElementById("editor").innerHTML="";save();show("chapters")}
+function deleteChapter(id){if(!authGuard())return;let c=data.chapters.find(x=>x.id===id);if(!c||!confirm(`Xóa chương "${c.title}"?`))return;data.chapters=data.chapters.filter(x=>x.id!==id);save()}
+function newChapterFor(actId){if(!authGuard())return;show("manage");let e=document.getElementById("editor");e.innerHTML=`<div class="card form"><h3>Viết chương mới</h3><select id="f1">${data.acts.map(a=>`<option value="${a.id}" ${a.id===actId?'selected':''}>${esc(a.name)}</option>`).join("")}</select><input id="f2" placeholder="Tên chương"><textarea id="f3" placeholder="Nội dung chương. Mỗi đoạn cách nhau bằng một dòng trống."></textarea><div class="actions"><button onclick="createItem('chapter')">Lưu</button><button onclick="e.innerHTML=''">Hủy</button></div></div>`}
+
+
+function renderCities(){
+ const box=document.getElementById("cityList"); if(!box)return;
+ const q=(document.getElementById("citySearch")?.value||"").trim().toLowerCase();
+ const arr=data.cities.filter(c=>!q||[c.name,c.region,c.status,c.desc,c.places,c.relations].some(v=>String(v||"").toLowerCase().includes(q)));
+ box.innerHTML=arr.length?arr.map(c=>`<div class="card lore-card"><div class="card-title-row"><h3>🏙️ ${esc(c.name)}</h3><small>${esc(c.status||"")}</small></div>${c.region?`<p><b>Khu vực:</b> ${esc(c.region)}</p>`:""}${c.desc?`<p>${esc(c.desc)}</p>`:""}${c.places?`<p><b>Địa điểm quan trọng:</b><br>${esc(c.places)}</p>`:""}${c.relations?`<p><b>Liên quan:</b><br>${esc(c.relations)}</p>`:""}${isAdmin()?`<div class="actions admin-only"><button class="mini" onclick="editCity('${c.id}')">Sửa</button><button class="mini danger" onclick="deleteCity('${c.id}')">Xóa</button></div>`:""}</div>`).join(""):`<p class="muted">Chưa có thành phố nào${q?" phù hợp với tìm kiếm":""}.</p>`;
+}
+function renderOrganizations(){
+ const box=document.getElementById("organizationList"); if(!box)return;
+ const q=(document.getElementById("organizationSearch")?.value||"").trim().toLowerCase();
+ const arr=data.organizations.filter(o=>!q||[o.name,o.type,o.base,o.leader,o.desc,o.goals,o.relations].some(v=>String(v||"").toLowerCase().includes(q)));
+ box.innerHTML=arr.length?arr.map(o=>`<div class="card lore-card"><div class="card-title-row"><h3>🏛️ ${esc(o.name)}</h3><small>${esc(o.type||"")}</small></div>${o.base?`<p><b>Trụ sở / địa bàn:</b> ${esc(o.base)}</p>`:""}${o.leader?`<p><b>Lãnh đạo:</b> ${esc(o.leader)}</p>`:""}${o.desc?`<p>${esc(o.desc)}</p>`:""}${o.goals?`<p><b>Mục tiêu / hoạt động:</b><br>${esc(o.goals)}</p>`:""}${o.relations?`<p><b>Thành viên / quan hệ:</b><br>${esc(o.relations)}</p>`:""}${isAdmin()?`<div class="actions admin-only"><button class="mini" onclick="editOrganization('${o.id}')">Sửa</button><button class="mini danger" onclick="deleteOrganization('${o.id}')">Xóa</button></div>`:""}</div>`).join(""):`<p class="muted">Chưa có tổ chức nào${q?" phù hợp với tìm kiếm":""}.</p>`;
+}
+function editCity(id){
+ if(!authGuard())return;const c=data.cities.find(x=>x.id===id);if(!c)return;show("manage");
+ document.getElementById("editor").innerHTML=`<div class="card form"><h3>✎ Sửa thành phố</h3><input id="ci1" value="${attr(c.name)}"><input id="ci2" value="${attr(c.region||"")}"><input id="ci3" value="${attr(c.status||"")}"><textarea id="ci4">${esc(c.desc||"")}</textarea><textarea id="ci5">${esc(c.places||"")}</textarea><textarea id="ci6">${esc(c.relations||"")}</textarea><div class="actions"><button onclick="saveCity('${id}')">Lưu</button><button onclick="document.getElementById('editor').innerHTML=''">Hủy</button></div></div>`;
+}
+function saveCity(id){
+ if(!authGuard())return;const c=data.cities.find(x=>x.id===id);if(!c)return;
+ c.name=document.getElementById("ci1").value.trim();c.region=document.getElementById("ci2").value.trim();c.status=document.getElementById("ci3").value.trim();c.desc=document.getElementById("ci4").value.trim();c.places=document.getElementById("ci5").value.trim();c.relations=document.getElementById("ci6").value.trim();
+ document.getElementById("editor").innerHTML="";save();show("cities");
+}
+function deleteCity(id){if(!authGuard())return;const c=data.cities.find(x=>x.id===id);if(!c||!confirm(`Xóa thành phố "${c.name}"?`))return;data.cities=data.cities.filter(x=>x.id!==id);save();}
+function editOrganization(id){
+ if(!authGuard())return;const o=data.organizations.find(x=>x.id===id);if(!o)return;show("manage");
+ document.getElementById("editor").innerHTML=`<div class="card form"><h3>✎ Sửa tổ chức</h3><input id="or1" value="${attr(o.name)}"><input id="or2" value="${attr(o.type||"")}"><input id="or3" value="${attr(o.base||"")}"><input id="or4" value="${attr(o.leader||"")}"><textarea id="or5">${esc(o.desc||"")}</textarea><textarea id="or6">${esc(o.goals||"")}</textarea><textarea id="or7">${esc(o.relations||"")}</textarea><div class="actions"><button onclick="saveOrganization('${id}')">Lưu</button><button onclick="document.getElementById('editor').innerHTML=''">Hủy</button></div></div>`;
+}
+function saveOrganization(id){
+ if(!authGuard())return;const o=data.organizations.find(x=>x.id===id);if(!o)return;
+ o.name=document.getElementById("or1").value.trim();o.type=document.getElementById("or2").value.trim();o.base=document.getElementById("or3").value.trim();o.leader=document.getElementById("or4").value.trim();o.desc=document.getElementById("or5").value.trim();o.goals=document.getElementById("or6").value.trim();o.relations=document.getElementById("or7").value.trim();
+ document.getElementById("editor").innerHTML="";save();show("organizations");
+}
+function deleteOrganization(id){if(!authGuard())return;const o=data.organizations.find(x=>x.id===id);if(!o||!confirm(`Xóa tổ chức "${o.name}"?`))return;data.organizations=data.organizations.filter(x=>x.id!==id);save();}
+function editStoryDescription(){if(!authGuard())return;show("manage");let e=document.getElementById("editor");e.innerHTML=`<div class="card form"><h3>✎ Mô tả câu chuyện</h3><p class="muted">Nội dung này sẽ xuất hiện ngay trên Trang chủ. Mỗi đoạn cách nhau bằng một dòng trống.</p><textarea id="storyDescEdit" style="min-height:220px">${esc(data.storyDescription||"")}</textarea><div class="actions"><button onclick="saveStoryDescription()">Lưu mô tả</button><button onclick="document.getElementById('editor').innerHTML=''">Hủy</button></div></div>`}
+function saveStoryDescription(){if(!authGuard())return;data.storyDescription=document.getElementById("storyDescEdit").value.trim();document.getElementById("editor").innerHTML="";save();show("home")}
+function renderCharacters(){
+ const box=document.getElementById("charList"); if(!box)return;
+ const q=(document.getElementById("characterSearch")?.value||"").trim().toLowerCase();
+ const open=JSON.parse(localStorage.getItem("felony_open_groups")||"[]");
+ box.innerHTML=data.characterGroups.map(g=>{
+   const members=data.characters.map((c,i)=>({c,i})).filter(x=>x.c[3]===g.id);
+   const groupMatch=!q || g.name.toLowerCase().includes(q) || (g.desc||"").toLowerCase().includes(q);
+   const filtered=groupMatch?members:members.filter(x=>x.c[0].toLowerCase().includes(q)||x.c[1].toLowerCase().includes(q)||x.c[2].toLowerCase().includes(q));
+   if(q&&!groupMatch&&!filtered.length)return "";
+   const expanded=q ? filtered.length>0 : open.includes(g.id);
+   return `<div class="group-card">
+     <div class="group-head" onclick="toggleGroup('${g.id}')">
+       <div class="group-toggle"><span class="group-arrow">${expanded?'▾':'▸'}</span><div><h3 class="group-title">${esc(g.name)}</h3><p class="muted">${esc(g.desc||"")} · ${members.length} nhân vật</p></div></div>
+       <div class="group-actions"><button class="mini" onclick="event.stopPropagation();editGroup('${g.id}')">Sửa khung</button><button class="mini danger" onclick="event.stopPropagation();deleteGroup('${g.id}')">Xóa khung</button></div>
+     </div>
+     ${expanded?`<div class="group-members" style="padding-top:16px">${filtered.length?filtered.map(x=>`<div class="member-card"><h4>${esc(x.c[0])}</h4><p class="accent">${esc(x.c[1])}</p><p>${esc(x.c[2]||"")}</p><div class="actions"><button class="mini" onclick="editSimple('character',${x.i})">Sửa</button><button class="mini danger" onclick="deleteSimple('character',${x.i})">Xóa</button></div></div>`).join(""):`<p class="muted">Không có nhân vật phù hợp.</p>`}</div><button style="margin-top:14px" onclick="newCharacterFor('${g.id}')">＋ Thêm nhân vật vào khung này</button>`:''}
+   </div>`;
+ }).join("");
+}
+function toggleGroup(id){
+ let open=JSON.parse(localStorage.getItem("felony_open_groups")||"[]");
+ open=open.includes(id)?open.filter(x=>x!==id):[...open,id];
+ localStorage.setItem("felony_open_groups",JSON.stringify(open));
+ renderCharacters();
+}
+function editGroup(id){if(!authGuard())return;let g=data.characterGroups.find(x=>x.id===id);if(!g)return;show("manage");document.getElementById("editor").innerHTML=`<div class="card form"><h3>Sửa khung nhân vật</h3><input id="eg1" value="${attr(g.name)}"><textarea id="eg2">${esc(g.desc||"")}</textarea><div class="actions"><button onclick="saveGroup('${id}')">Lưu</button><button onclick="document.getElementById('editor').innerHTML=''">Hủy</button></div></div>`}
+function saveGroup(id){if(!authGuard())return;let g=data.characterGroups.find(x=>x.id===id);g.name=document.getElementById("eg1").value.trim();g.desc=document.getElementById("eg2").value.trim();document.getElementById("editor").innerHTML="";save();show("characters")}
+function deleteGroup(id){if(!authGuard())return;let g=data.characterGroups.find(x=>x.id===id);if(!g)return;if(data.characterGroups.length<=1){alert("Phải giữ lại ít nhất một khung nhân vật.");return}if(!confirm(`Xóa khung "${g.name}"? Các nhân vật trong khung sẽ được chuyển sang khung đầu tiên còn lại.`))return;let fallback=data.characterGroups.find(x=>x.id!==id);data.characters=data.characters.map(c=>c[3]===id?[c[0],c[1],c[2],fallback.id]:c);data.characterGroups=data.characterGroups.filter(x=>x.id!==id);save()}
+function newCharacterFor(groupId){if(!authGuard())return;show("manage");document.getElementById("editor").innerHTML=`<div class="card form"><h3>Thêm nhân vật vào khung</h3><input id="f1" placeholder="Tên nhân vật"><input id="f2" placeholder="Vai trò / tội lỗi"><textarea id="f3" placeholder="Mô tả, vũ khí, sức mạnh..."></textarea><select id="f4">${data.characterGroups.map(g=>`<option value="${g.id}" ${g.id===groupId?'selected':''}>${esc(g.name)}</option>`).join("")}</select><div class="actions"><button onclick="createItem('character')">Lưu</button><button onclick="document.getElementById('editor').innerHTML=''">Hủy</button></div></div>`}
+function editSimple(type,i){if(!authGuard())return;show("manage");let e=document.getElementById("editor");let x=type==="character"?data.characters[i]:type==="lore"?data.lore[i]:data.timeline[i];e.innerHTML=`<div class="card form"><h3>Chỉnh sửa</h3><input id="e1" value="${attr(x[0])}"><textarea id="e2">${esc(x[1])}</textarea>${type==="character"?`<textarea id="e3">${esc(x[2]||"")}</textarea><select id="e4">${data.characterGroups.map(g=>`<option value="${g.id}" ${g.id===x[3]?'selected':''}>${esc(g.name)}</option>`).join("")}</select>`:""}<div class="actions"><button onclick="saveSimple('${type}',${i})">Lưu</button><button class="danger" onclick="deleteSimple('${type}',${i})">Xóa</button></div></div>`}
+function saveSimple(type,i){if(!authGuard())return;let a=document.getElementById("e1").value.trim(),b=document.getElementById("e2").value.trim();if(type==="character")data.characters[i]=[a,b,document.getElementById("e3").value.trim(),document.getElementById("e4").value];else data[type==="lore"?"lore":"timeline"][i]=[a,b];document.getElementById("editor").innerHTML="";save()}
+function deleteSimple(type,i){if(!authGuard())return;if(!confirm("Xóa mục này?"))return;(type==="character"?data.characters:type==="lore"?data.lore:data.timeline).splice(i,1);document.getElementById("editor").innerHTML="";save()}
+function exportData(){let blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="reality-felony-backup.json";a.click()}
+function importData(ev){if(!authGuard())return;let f=ev.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{data=JSON.parse(r.result);save();alert("Đã nhập dữ liệu!")}catch(e){alert("File JSON không hợp lệ.")}};r.readAsText(f)}
+function resetData(){if(!authGuard())return;if(confirm("Xóa dữ liệu hiện tại và khôi phục bản mẫu?")){localStorage.removeItem(KEY);location.reload()}}
+function uid(){return Math.random().toString(36).slice(2)+Date.now().toString(36)}function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}function attr(s){return esc(s)}
+renderAll();renderCharacters();renderChapters();
+if(sessionRole){document.body.classList.remove("locked");document.getElementById("loginGate").style.display="none";applyRoleUI();setTimeout(syncFromCloud,0)}
+</script>
+
+<script id="offline-voice-reader">
+(function(){
+  let queue=[], queueIndex=0, speaking=false, paused=false, generation=0;
+
+  function controls(){
+    return {
+      rate:document.getElementById("voiceRate"),
+      voice:document.getElementById("voiceVoice"),
+      status:document.getElementById("voiceStatus")
+    };
+  }
+
+  function fillVoices(){
+    const c=controls();
+    if(!c.voice || !("speechSynthesis" in window)) return;
+    const voices=speechSynthesis.getVoices();
+    const old=c.voice.value;
+    c.voice.innerHTML="";
+    voices.forEach((v,i)=>{
+      const o=document.createElement("option");
+      o.value=String(i);
+      o.textContent=(v.name||"Giọng đọc")+" — "+(v.lang||"");
+      c.voice.appendChild(o);
+    });
+    const vi=voices.findIndex(v=>/^vi(-|_)/i.test(v.lang||""));
+    if(vi>=0)c.voice.value=String(vi);
+    else if(old && [...c.voice.options].some(o=>o.value===old))c.voice.value=old;
+  }
+
+  // SpeechSynthesis on Android can fail or stop on very long utterances.
+  // Keep every chunk short while preserving the exact original text.
+  function makeVoiceQueue(){
+    const out=[];
+    (data.chapters[current]?.body||[]).forEach((raw,pIndex)=>{
+      const text=String(raw??"");
+      if(!text.trim())return;
+      const parts=text.match(/[^.!?…。！？]+[.!?…。！？]+|[^.!?…。！？]+$/g)||[text];
+      let buf="";
+      parts.forEach(part=>{
+        if(buf && (buf.length+part.length>420)){out.push({text:buf.trim(),page:pageForParagraph(pIndex)});buf=part;}
+        else buf+=part;
+      });
+      if(buf.trim())out.push({text:buf.trim(),page:pageForParagraph(pIndex)});
+    });
+    return out;
+  }
+
+  function pageForParagraph(index){
+    // Find which automatically-created page contains this paragraph.
+    const target=String(data.chapters[current]?.body?.[index]??"");
+    for(let p=0;p<readerPages.length;p++){
+      if(readerPages[p].some(x=>x===target || target.includes(x))) return p;
+    }
+    return Math.min(readerPage,Math.max(0,readerPages.length-1));
+  }
+
+  function speakNext(myGeneration){
+    if(myGeneration!==generation || !speaking || queueIndex>=queue.length){
+      if(myGeneration===generation && queueIndex>=queue.length){
+        speaking=false;paused=false;
+        const c=controls();if(c.status)c.status.textContent="✓ Đã đọc xong toàn bộ chương.";
+      }
+      return;
+    }
+    const item=queue[queueIndex];
+    const c=controls();
+    const voices=speechSynthesis.getVoices();
+    const idx=parseInt(c.voice?.value||"-1",10);
+    const u=new SpeechSynthesisUtterance(item.text);
+    if(voices[idx])u.voice=voices[idx];
+    u.lang=(voices[idx]?.lang)||"vi-VN";
+    u.rate=parseFloat(c.rate?.value||"1");
+    u.pitch=1;
+    u.onstart=()=>{
+      if(myGeneration!==generation)return;
+      paused=false;
+      if(typeof item.page==="number" && item.page!==readerPage){readerPage=item.page;renderReaderPage();}
+      if(c.status)c.status.textContent=`🔊 Đang đọc đoạn ${queueIndex+1}/${queue.length}…`;
+    };
+    u.onend=()=>{
+      if(myGeneration!==generation)return;
+      queueIndex++;
+      // Small delay prevents Android speech engines from dropping the next utterance.
+      setTimeout(()=>speakNext(myGeneration),80);
+    };
+    u.onerror=()=>{
+      if(myGeneration!==generation)return;
+      queueIndex++;
+      setTimeout(()=>speakNext(myGeneration),120);
+    };
+    speechSynthesis.speak(u);
+  }
+
+  window.REALITYFelonyVoice={
+    speak:function(){
+      if(!("speechSynthesis" in window)){
+        alert("Trình duyệt này không hỗ trợ đọc giọng nói.");
+        return;
+      }
+      speechSynthesis.cancel();
+      generation++;
+      queue=makeVoiceQueue();
+      queueIndex=0;
+      speaking=queue.length>0;
+      paused=false;
+      const c=controls();
+      if(!speaking){
+        if(c.status)c.status.textContent="Chương này chưa có nội dung để đọc.";
+        return;
+      }
+      if(c.status)c.status.textContent=`Chuẩn bị đọc ${queue.length} đoạn…`;
+      setTimeout(()=>speakNext(generation),100);
+    },
+    pause:function(){
+      if("speechSynthesis" in window && speechSynthesis.speaking){
+        speechSynthesis.pause();paused=true;
+        const c=controls();if(c.status)c.status.textContent="⏸️ Đã tạm dừng.";
+      }
+    },
+    resume:function(){
+      if("speechSynthesis" in window && speechSynthesis.paused){
+        speechSynthesis.resume();paused=false;
+        const c=controls();if(c.status)c.status.textContent="▶️ Đang tiếp tục…";
+      }else if(speaking){
+        speakNext(generation);
+      }
+    },
+    stop:function(){
+      generation++;
+      if("speechSynthesis" in window)speechSynthesis.cancel();
+      queue=[];queueIndex=0;speaking=false;paused=false;
+      const c=controls();if(c.status)c.status.textContent="⏹️ Đã dừng.";
+    }
+  };
+
+  if("speechSynthesis" in window)speechSynthesis.onvoiceschanged=fillVoices;
+  document.addEventListener("DOMContentLoaded",fillVoices);
+  setTimeout(fillVoices,300);
+})();
+</script>
+
+</body></html>
