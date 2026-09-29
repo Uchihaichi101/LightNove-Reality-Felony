@@ -3,7 +3,7 @@
 Bản này chia quyền thành:
 
 - `member` / mật khẩu `1`: chỉ đọc và nghe.
-- `admin` / mật khẩu `120`: viết, sửa, xóa và đồng bộ.
+- `admin` / mật khẩu `0`: viết, sửa, xóa và đồng bộ.
 
 ## 1. Tạo Supabase project
 
